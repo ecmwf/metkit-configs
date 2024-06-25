@@ -464,6 +464,26 @@ _field: &_field
     never:
     - type: [tf, ob]
 
+  chem:
+    category: data
+    multiple: true
+    type: enum
+
+  paramtype:
+    category: data
+    flatten: false
+    type: enum
+    values:
+      - base
+      - wave
+      - wave_spectra
+      - chemical
+
+  wavelenth:
+    category: data
+    multiple: true
+    type: enum
+
 #################################################################
 
   # year
@@ -586,9 +606,6 @@ _field: &_field
     by: 1
     only:
     - type: [pf, cr, cm, fcmean, fcmin, fcmax, fcstdev, sot, fc, wp, 4i, 4v]
-    never:
-    # This is to prevent number with type=fc and stream=oper
-    - stream: [oper, wave]
     type: to-by-list
 
   quantile:
