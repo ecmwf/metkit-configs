@@ -1,0 +1,54 @@
+# To be updated...
+
+key: typeOfLevel
+dict: work
+default:
+    write:
+        level: 
+            key: level
+            default: 0
+value-map: 
+    # Level unrelated?? At least according to ClimateDT runs
+    meanSea: &mapLevelUnrelated
+        pass: null
+    lowCloudLayer: *mapLevelUnrelated
+    mediumCloudLayer: *mapLevelUnrelated
+    highCloudLayer: *mapLevelUnrelated
+    oceanSurface: *mapLevelUnrelated
+    
+    
+    # One surface
+    snow: &mapLevelToFirstFixedSurface
+        write:
+            scaledValueOfFirstFixedSurface: 
+                key: level
+                default: 0
+    soil: *mapLevelToFirstFixedSurface
+    seaIce: *mapLevelToFirstFixedSurface
+    hybrid: *mapLevelToFirstFixedSurface
+    oceanModel: *mapLevelToFirstFixedSurface
+    
+    
+    # Two surfaces
+    snowLayer: &mapLevelFixedSurfaces
+        write:
+            scaledValueOfFirstFixedSurface: 
+                op: subtract
+                lhs:
+                    key: level
+                    default: 0
+                rhs: 1
+            scaledValueOfSecondFixedSurface: 
+                key: level
+                default: 0
+    soilLayer: *mapLevelFixedSurfaces
+    seaIceLayer: *mapLevelFixedSurfaces
+    hybridLayer: *mapLevelFixedSurfaces
+    oceanModelLayer: *mapLevelFixedSurfaces
+    
+    # Special
+    iceLayerAboveWaterSurface: *mapLevelToFirstFixedSurface
+    waterSurfaceToIsothermalOceanLayer: &mapLevelToSecondFixedSurface
+        write:
+            scaledValueOfSecondFixedSurface: 
+                key: level
