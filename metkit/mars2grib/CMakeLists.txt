@@ -1,4 +1,4 @@
-list( APPEND files_mars2grib RuleList.yaml )
+list( APPEND files_mars2grib RuleList.yaml StatParamRuleList.yaml)
 
 foreach( _file ${files_mars2grib} )
 

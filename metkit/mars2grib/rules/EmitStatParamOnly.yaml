@@ -1,0 +1,10 @@
+write-out:
+    typeOfStatisticalProcessing:
+        key: typeOfStatisticalProcessing
+        default: null
+    indicatorOfUnitForTimeRange:
+        key: indicatorOfUnitForTimeRange
+        default: null
+    lengthOfTimeRange:
+        key: lengthOfTimeRange
+        default: null
