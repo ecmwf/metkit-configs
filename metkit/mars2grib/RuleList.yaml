@@ -3,6 +3,8 @@
 - type: yaml
   file: "~metkit/share/metkit/mars2grib/rules/TimeDescription.yaml"
 - type: yaml
+  file: "~metkit/share/metkit/mars2grib/rules/InferProcessType.yaml"
+- type: yaml
   file: "~metkit/share/metkit/mars2grib/rules/CategoriesToPDT.yaml"
 - type: yaml
   file: "~metkit/share/metkit/mars2grib/rules/LevTypeToTypeOfLevel.yaml"

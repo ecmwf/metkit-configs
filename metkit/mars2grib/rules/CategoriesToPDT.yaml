@@ -8,30 +8,6 @@ value-map:
     key: timeFormat
     dict: work
     value-map:
-      localTime:
-        key: processSubType
-        dict: work
-        value-map:
-          ensemble:
-            key: productCategory
-            dict: work
-            value-map:
-              postProcess:
-                write:
-                  productDefinitionTemplateNumber: 98
-            default:
-              write:
-                productDefinitionTemplateNumber: 96
-        default:
-          key: productCategory
-          dict: work
-          value-map:
-            postProcess:
-              write:
-                productDefinitionTemplateNumber: 97
-          default:
-            write:
-              productDefinitionTemplateNumber: 95
       withReferencePeriod:
         key: spatialExtent
         dict: work
@@ -71,10 +47,45 @@ value-map:
             default:
               write:
                 productDefinitionTemplateNumber: 105
+      localTime:
+        key: processSubType
+        dict: work
+        value-map:
+          ensemble:
+            key: productCategory
+            dict: work
+            value-map:
+              postProcess:
+                write:
+                  productDefinitionTemplateNumber: 98
+            default:
+              write:
+                productDefinitionTemplateNumber: 96
+        default:
+          key: productCategory
+          dict: work
+          value-map:
+            postProcess:
+              write:
+                productDefinitionTemplateNumber: 97
+          default:
+            write:
+              productDefinitionTemplateNumber: 95
     default:
       key: spatialExtent
       dict: work
       value-map:
+        clusterStatCircular:
+          key: processType
+          dict: work
+          value-map:
+            derivedForecast:
+              key: processSubType
+              dict: work
+              value-map:
+                ensemble:
+                  write:
+                    productDefinitionTemplateNumber: 14
         clusterStatRectangular:
           key: processType
           dict: work
@@ -107,34 +118,17 @@ value-map:
           default:
             write:
               productDefinitionTemplateNumber: 114
-        clusterStatCircular:
-          key: processType
-          dict: work
-          value-map:
-            derivedForecast:
-              key: processSubType
-              dict: work
-              value-map:
-                ensemble:
-                  write:
-                    productDefinitionTemplateNumber: 14
       default:
         key: processType
         dict: work
         value-map:
-          percentile:
-            write:
-              productDefinitionTemplateNumber: 10
-          probability:
+          reforecast:
             key: processSubType
             dict: work
             value-map:
               ensemble:
                 write:
-                  productDefinitionTemplateNumber: 120
-            default:
-              write:
-                productDefinitionTemplateNumber: 9
+                  productDefinitionTemplateNumber: 61
           categorial:
             write:
               productDefinitionTemplateNumber: 91
@@ -148,46 +142,58 @@ value-map:
           quantile:
             write:
               productDefinitionTemplateNumber: 87
-          reforecast:
+          probability:
             key: processSubType
             dict: work
             value-map:
               ensemble:
                 write:
-                  productDefinitionTemplateNumber: 61
+                  productDefinitionTemplateNumber: 120
+            default:
+              write:
+                productDefinitionTemplateNumber: 9
+          percentile:
+            write:
+              productDefinitionTemplateNumber: 10
         default:
           key: processSubType
           dict: work
           value-map:
+            largeEnsemble:
+              write:
+                productDefinitionTemplateNumber: 118
             ensemble:
               key: productCategory
               dict: work
               value-map:
-                spatioTemporalTile:
-                  write:
-                    productDefinitionTemplateNumber: 63
-                postProcess:
-                  write:
-                    productDefinitionTemplateNumber: 73
-                optical:
-                  write:
-                    productDefinitionTemplateNumber: 111
                 chemical:
                   key: productSubCategory
                   dict: work
                   value-map:
-                    distribution:
-                      write:
-                        productDefinitionTemplateNumber: 68
-                    sourceSink:
-                      write:
-                        productDefinitionTemplateNumber: 79
                     radioNuclide:
                       write:
                         productDefinitionTemplateNumber: 127
+                    sourceSink:
+                      write:
+                        productDefinitionTemplateNumber: 79
+                    distribution:
+                      write:
+                        productDefinitionTemplateNumber: 68
                   default:
                     write:
                       productDefinitionTemplateNumber: 43
+                optical:
+                  write:
+                    productDefinitionTemplateNumber: 111
+                postProcess:
+                  write:
+                    productDefinitionTemplateNumber: 73
+                satellite:
+                  write:
+                    productDefinitionTemplateNumber: 34
+                spatioTemporalTile:
+                  write:
+                    productDefinitionTemplateNumber: 63
                 aerosol:
                   key: productSubCategory
                   dict: work
@@ -198,41 +204,41 @@ value-map:
                   default:
                     write:
                       productDefinitionTemplateNumber: 85
-                satellite:
-                  write:
-                    productDefinitionTemplateNumber: 34
               default:
                 write:
-                  productDefinitionTemplateNumber: 118
+                  productDefinitionTemplateNumber: 11
           default:
             key: productCategory
             dict: work
             value-map:
-              spatioTemporalTile:
-                write:
-                  productDefinitionTemplateNumber: 62
-              postProcess:
-                write:
-                  productDefinitionTemplateNumber: 72
-              optical:
-                write:
-                  productDefinitionTemplateNumber: 110
               chemical:
                 key: productSubCategory
                 dict: work
                 value-map:
-                  distribution:
-                    write:
-                      productDefinitionTemplateNumber: 67
-                  sourceSink:
-                    write:
-                      productDefinitionTemplateNumber: 78
                   radioNuclide:
                     write:
                       productDefinitionTemplateNumber: 126
+                  sourceSink:
+                    write:
+                      productDefinitionTemplateNumber: 78
+                  distribution:
+                    write:
+                      productDefinitionTemplateNumber: 67
                 default:
                   write:
                     productDefinitionTemplateNumber: 42
+              hovmoeller:
+                write:
+                  productDefinitionTemplateNumber: 1101
+              optical:
+                write:
+                  productDefinitionTemplateNumber: 110
+              postProcess:
+                write:
+                  productDefinitionTemplateNumber: 72
+              spatioTemporalTile:
+                write:
+                  productDefinitionTemplateNumber: 62
               crossSect:
                 write:
                   productDefinitionTemplateNumber: 1001
@@ -246,9 +252,6 @@ value-map:
                 default:
                   write:
                     productDefinitionTemplateNumber: 46
-              hovmoeller:
-                write:
-                  productDefinitionTemplateNumber: 1101
             default:
               write:
                 productDefinitionTemplateNumber: 8
@@ -284,6 +287,17 @@ value-map:
       key: spatialExtent
       dict: work
       value-map:
+        clusterStatCircular:
+          key: processType
+          dict: work
+          value-map:
+            derivedForecast:
+              key: processSubType
+              dict: work
+              value-map:
+                ensemble:
+                  write:
+                    productDefinitionTemplateNumber: 4
         clusterStatRectangular:
           key: processType
           dict: work
@@ -316,34 +330,17 @@ value-map:
           default:
             write:
               productDefinitionTemplateNumber: 113
-        clusterStatCircular:
-          key: processType
-          dict: work
-          value-map:
-            derivedForecast:
-              key: processSubType
-              dict: work
-              value-map:
-                ensemble:
-                  write:
-                    productDefinitionTemplateNumber: 4
       default:
         key: processType
         dict: work
         value-map:
-          percentile:
-            write:
-              productDefinitionTemplateNumber: 6
-          probability:
+          reforecast:
             key: processSubType
             dict: work
             value-map:
               ensemble:
                 write:
-                  productDefinitionTemplateNumber: 119
-            default:
-              write:
-                productDefinitionTemplateNumber: 5
+                  productDefinitionTemplateNumber: 60
           categorial:
             write:
               productDefinitionTemplateNumber: 51
@@ -357,62 +354,30 @@ value-map:
           quantile:
             write:
               productDefinitionTemplateNumber: 86
-          reforecast:
+          probability:
             key: processSubType
             dict: work
             value-map:
               ensemble:
                 write:
-                  productDefinitionTemplateNumber: 60
+                  productDefinitionTemplateNumber: 119
+            default:
+              write:
+                productDefinitionTemplateNumber: 5
+          percentile:
+            write:
+              productDefinitionTemplateNumber: 6
         default:
           key: processSubType
           dict: work
           value-map:
+            largeEnsemble:
+              write:
+                productDefinitionTemplateNumber: 117
             ensemble:
               key: productCategory
               dict: work
               value-map:
-                spatioTemporalTile:
-                  write:
-                    productDefinitionTemplateNumber: 59
-                wave:
-                  key: productSubCategory
-                  dict: work
-                  value-map:
-                    spectraList:
-                      write:
-                        productDefinitionTemplateNumber: 100
-                    spectraFormula:
-                      write:
-                        productDefinitionTemplateNumber: 102
-                    periodRange:
-                      write:
-                        productDefinitionTemplateNumber: 104
-                postProcess:
-                  write:
-                    productDefinitionTemplateNumber: 71
-                optical:
-                  write:
-                    productDefinitionTemplateNumber: 109
-                partitioned:
-                  write:
-                    productDefinitionTemplateNumber: 54
-                chemical:
-                  key: productSubCategory
-                  dict: work
-                  value-map:
-                    distribution:
-                      write:
-                        productDefinitionTemplateNumber: 58
-                    sourceSink:
-                      write:
-                        productDefinitionTemplateNumber: 77
-                    radioNuclide:
-                      write:
-                        productDefinitionTemplateNumber: 125
-                  default:
-                    write:
-                      productDefinitionTemplateNumber: 41
                 aerosol:
                   key: productSubCategory
                   dict: work
@@ -426,70 +391,57 @@ value-map:
                   default:
                     write:
                       productDefinitionTemplateNumber: 45
+                chemical:
+                  key: productSubCategory
+                  dict: work
+                  value-map:
+                    radioNuclide:
+                      write:
+                        productDefinitionTemplateNumber: 125
+                    sourceSink:
+                      write:
+                        productDefinitionTemplateNumber: 77
+                    distribution:
+                      write:
+                        productDefinitionTemplateNumber: 58
+                  default:
+                    write:
+                      productDefinitionTemplateNumber: 41
+                partitioned:
+                  write:
+                    productDefinitionTemplateNumber: 54
+                optical:
+                  write:
+                    productDefinitionTemplateNumber: 109
+                postProcess:
+                  write:
+                    productDefinitionTemplateNumber: 71
                 satellite:
                   write:
                     productDefinitionTemplateNumber: 33
+                spatioTemporalTile:
+                  write:
+                    productDefinitionTemplateNumber: 59
+                wave:
+                  key: productSubCategory
+                  dict: work
+                  value-map:
+                    periodRange:
+                      write:
+                        productDefinitionTemplateNumber: 104
+                    spectraList:
+                      write:
+                        productDefinitionTemplateNumber: 100
+                    spectraFormula:
+                      write:
+                        productDefinitionTemplateNumber: 102
               default:
                 write:
-                  productDefinitionTemplateNumber: 117
+                  productDefinitionTemplateNumber: 1
           default:
             key: productCategory
             dict: work
             value-map:
-              spatialStatisticalProcessing:
-                write:
-                  productDefinitionTemplateNumber: 15
-              spatioTemporalTile:
-                write:
-                  productDefinitionTemplateNumber: 55
-              wave:
-                key: productSubCategory
-                dict: work
-                value-map:
-                  spectraList:
-                    write:
-                      productDefinitionTemplateNumber: 99
-                  spectraFormula:
-                    write:
-                      productDefinitionTemplateNumber: 101
-                  periodRange:
-                    write:
-                      productDefinitionTemplateNumber: 103
-              postProcess:
-                write:
-                  productDefinitionTemplateNumber: 70
-              optical:
-                write:
-                  productDefinitionTemplateNumber: 108
-              partitioned:
-                write:
-                  productDefinitionTemplateNumber: 53
-              chemical:
-                key: productSubCategory
-                dict: work
-                value-map:
-                  distribution:
-                    write:
-                      productDefinitionTemplateNumber: 57
-                  sourceSink:
-                    write:
-                      productDefinitionTemplateNumber: 76
-                  radioNuclide:
-                    write:
-                      productDefinitionTemplateNumber: 124
-                default:
-                  write:
-                    productDefinitionTemplateNumber: 40
-              crossSect:
-                key: productSubCategory
-                dict: work
-                value-map:
-                  statisticalOverLatLong:
-                    write:
-                      productDefinitionTemplateNumber: 1002
-                default:
-                  write:
-                    productDefinitionTemplateNumber: 1000
               aerosol:
                 key: productSubCategory
                 dict: work
@@ -500,12 +452,66 @@ value-map:
                   optical:
                     write:
                       productDefinitionTemplateNumber: 48
+              chemical:
+                key: productSubCategory
+                dict: work
+                value-map:
+                  radioNuclide:
+                    write:
+                      productDefinitionTemplateNumber: 124
+                  sourceSink:
+                    write:
+                      productDefinitionTemplateNumber: 76
+                  distribution:
+                    write:
+                      productDefinitionTemplateNumber: 57
+                default:
+                  write:
+                    productDefinitionTemplateNumber: 40
               hovmoeller:
                 write:
                   productDefinitionTemplateNumber: 1100
+              partitioned:
+                write:
+                  productDefinitionTemplateNumber: 53
+              optical:
+                write:
+                  productDefinitionTemplateNumber: 108
+              postProcess:
+                write:
+                  productDefinitionTemplateNumber: 70
               satellite:
                 write:
                   productDefinitionTemplateNumber: 32
+              spatioTemporalTile:
+                write:
+                  productDefinitionTemplateNumber: 55
+              spatialStatisticalProcessing:
+                write:
+                  productDefinitionTemplateNumber: 15
+              crossSect:
+                key: productSubCategory
+                dict: work
+                value-map:
+                  statisticalOverLatLong:
+                    write:
+                      productDefinitionTemplateNumber: 1002
+                default:
+                  write:
+                    productDefinitionTemplateNumber: 1000
+              wave:
+                key: productSubCategory
+                dict: work
+                value-map:
+                  periodRange:
+                    write:
+                      productDefinitionTemplateNumber: 103
+                  spectraList:
+                    write:
+                      productDefinitionTemplateNumber: 99
+                  spectraFormula:
+                    write:
+                      productDefinitionTemplateNumber: 101
             default:
               write:
                 productDefinitionTemplateNumber: 0
@@ -513,6 +519,9 @@ default:
   key: productCategory
   dict: work
   value-map:
+    ccittIA5:
+      write:
+        productDefinitionTemplateNumber: 254
     radar:
       write:
         productDefinitionTemplateNumber: 20
@@ -526,6 +535,3 @@ default:
       default:
         write:
           productDefinitionTemplateNumber: 31
-    ccittIA5:
-      write:
-        productDefinitionTemplateNumber: 254

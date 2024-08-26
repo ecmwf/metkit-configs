@@ -1,0 +1,38 @@
+# File is manually updated
+
+key: stream
+dict: initial
+default: &def
+    pass: null
+value-map:   
+    # Currently ensemble forecast are just taken from mars streams when their description included "ensemble"
+    enda: &ensemble
+        write-work:
+          - processSubType: ensemble
+    efho: *ensemble
+    enfh: *ensemble
+    efov: *ensemble
+    enfo: *ensemble
+    efhc: *ensemble 
+    efhs: *ensemble 
+    ewho: *ensemble 
+    enwh: *ensemble 
+    waef: *ensemble 
+    ewhc: *ensemble 
+    weov: *ensemble 
+    eefh: *ensemble 
+    eehs: *ensemble 
+    eefo: *ensemble 
+    weef: *ensemble 
+    weeh: *ensemble 
+    wees: *ensemble 
+    edmm: *ensemble 
+    edmo: *ensemble 
+    ewmo: *ensemble 
+    ewmm: *ensemble 
+    espd: *ensemble 
+    elda: *ensemble 
+    ewla: *ensemble
+    # TBD: &largeEnsemble
+    #     write-work:
+    #       - processSubType: largeEnsemble

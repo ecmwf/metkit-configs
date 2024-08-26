@@ -48,6 +48,7 @@ categories:
             processSubType:
                 - null
                 - ensemble: [individualEnsembleForecast]
+                - largeEnsemble
 
         - name: reforecast
           groups: [reforecast]
@@ -318,14 +319,27 @@ groups:
 
     ensemble:
         - numberOfForecastsInEnsemble
+        
+    largeEnsemble:
+        - numberOfForecastsInEnsemble
 
     perturbed:
         - perturbationNumber
 
-    individualEnsembleForecast:
+    baseIndividualEnsembleForecast:
         - typeOfEnsembleForecast
         - extend: perturbed
-        - extend: ensemble
+        - append: nested
+        
+    individualEnsembleForecast:
+        - extend: baseIndividualEnsembleForecast
+          nested:
+            - extend: ensemble
+            
+    largeIndividualEnsembleForecast:
+        - extend: baseIndividualEnsembleForecast
+          nested:
+            - extend: largeEnsemble
 
     derivedForecast:
         - derivedForecast
@@ -603,29 +617,29 @@ pdt:
             - scaleFactorOfSecondFixedSurface
             - scaledValueOfSecondFixedSurface
 
-    # # Excluded in favour of large ensemble 117
-    # 1:
-    #     groups: [parameter, generatingProcess, forecastTime,  horizontal, individualEnsembleForecast, pointInTime]
-    #     name: "Individual ensemble forecast, control and perturbed, at a horizontal level or in a horizontal layer at a point in time             "
-    #     keys:
-    #         - parameterCategory
-    #         - parameterNumber
-    #         - typeOfGeneratingProcess
-    #         - backgroundProcess
-    #         - generatingProcessIdentifier
-    #         - hoursAfterDataCutoff
-    #         - minutesAfterDataCutoff
-    #         - indicatorOfUnitOfTimeRange
-    #         - forecastTime
-    #         - typeOfFirstFixedSurface
-    #         - scaleFactorOfFirstFixedSurface
-    #         - scaledValueOfFirstFixedSurface
-    #         - typeOfSecondFixedSurface
-    #         - scaleFactorOfSecondFixedSurface
-    #         - scaledValueOfSecondFixedSurface
-    #         - typeOfEnsembleForecast
-    #         - perturbationNumber
-    #         - numberOfForecastsInEnsemble
+    # Excluded in favour of large ensemble 117
+    1:
+        groups: [parameter, generatingProcess, forecastTime,  horizontal, individualEnsembleForecast, pointInTime]
+        name: "Individual ensemble forecast, control and perturbed, at a horizontal level or in a horizontal layer at a point in time             "
+        keys:
+            - parameterCategory
+            - parameterNumber
+            - typeOfGeneratingProcess
+            - backgroundProcess
+            - generatingProcessIdentifier
+            - hoursAfterDataCutoff
+            - minutesAfterDataCutoff
+            - indicatorOfUnitOfTimeRange
+            - forecastTime
+            - typeOfFirstFixedSurface
+            - scaleFactorOfFirstFixedSurface
+            - scaledValueOfFirstFixedSurface
+            - typeOfSecondFixedSurface
+            - scaleFactorOfSecondFixedSurface
+            - scaledValueOfSecondFixedSurface
+            - typeOfEnsembleForecast
+            - perturbationNumber
+            - numberOfForecastsInEnsemble
 
     2:
         groups: [parameter, generatingProcess, forecastTime, horizontal, derivedEnsembleForecast, pointInTime]
@@ -900,45 +914,45 @@ pdt:
                 - indicatorOfUnitForTimeIncrement
                 - timeIncrement
 
-    # # Excluded in favour of large ensemble 118
-    # 11:
-    #     groups: [parameter, generatingProcess, forecastTime, horizontal, individualEnsembleForecast, statisticalTimeRange]
-    #     name: "Individual ensemble forecast, control and perturbed, at a horizontal level or in a horizontal layer in a continuous or non-continuous time interval "
-    #     keys:
-    #         - parameterCategory
-    #         - parameterNumber
-    #         - typeOfGeneratingProcess
-    #         - backgroundProcess
-    #         - generatingProcessIdentifier
-    #         - hoursAfterDataCutoff
-    #         - minutesAfterDataCutoff
-    #         - indicatorOfUnitOfTimeRange
-    #         - forecastTime
-    #         - typeOfFirstFixedSurface
-    #         - scaleFactorOfFirstFixedSurface
-    #         - scaledValueOfFirstFixedSurface
-    #         - typeOfSecondFixedSurface
-    #         - scaleFactorOfSecondFixedSurface
-    #         - scaledValueOfSecondFixedSurface
-    #         - typeOfEnsembleForecast
-    #         - perturbationNumber
-    #         - numberOfForecastsInEnsemble
-    #         - yearOfEndOfOverallTimeInterval
-    #         - monthOfEndOfOverallTimeInterval
-    #         - dayOfEndOfOverallTimeInterval
-    #         - hourOfEndOfOverallTimeInterval
-    #         - minuteOfEndOfOverallTimeInterval
-    #         - secondOfEndOfOverallTimeInterval
-    #         - numberOfTimeRange
-    #         - repeatFor: numberOfTimeRange
-    #           values:
-    #             - numberOfMissingInStatisticalProcess
-    #             - typeOfStatisticalProcessing
-    #             - typeOfTimeIncrement
-    #             - indicatorOfUnitForTimeRange
-    #             - lengthOfTimeRange
-    #             - indicatorOfUnitForTimeIncrement
-    #             - timeIncrement
+    # Excluded in favour of large ensemble 118
+    11:
+        groups: [parameter, generatingProcess, forecastTime, horizontal, individualEnsembleForecast, statisticalTimeRange]
+        name: "Individual ensemble forecast, control and perturbed, at a horizontal level or in a horizontal layer in a continuous or non-continuous time interval "
+        keys:
+            - parameterCategory
+            - parameterNumber
+            - typeOfGeneratingProcess
+            - backgroundProcess
+            - generatingProcessIdentifier
+            - hoursAfterDataCutoff
+            - minutesAfterDataCutoff
+            - indicatorOfUnitOfTimeRange
+            - forecastTime
+            - typeOfFirstFixedSurface
+            - scaleFactorOfFirstFixedSurface
+            - scaledValueOfFirstFixedSurface
+            - typeOfSecondFixedSurface
+            - scaleFactorOfSecondFixedSurface
+            - scaledValueOfSecondFixedSurface
+            - typeOfEnsembleForecast
+            - perturbationNumber
+            - numberOfForecastsInEnsemble
+            - yearOfEndOfOverallTimeInterval
+            - monthOfEndOfOverallTimeInterval
+            - dayOfEndOfOverallTimeInterval
+            - hourOfEndOfOverallTimeInterval
+            - minuteOfEndOfOverallTimeInterval
+            - secondOfEndOfOverallTimeInterval
+            - numberOfTimeRange
+            - repeatFor: numberOfTimeRange
+              values:
+                - numberOfMissingInStatisticalProcess
+                - typeOfStatisticalProcessing
+                - typeOfTimeIncrement
+                - indicatorOfUnitForTimeRange
+                - lengthOfTimeRange
+                - indicatorOfUnitForTimeIncrement
+                - timeIncrement
 
     12:
         groups: [parameter, generatingProcess, forecastTime, horizontal, derivedEnsembleForecast,  statisticalTimeRange]
@@ -3944,7 +3958,7 @@ pdt:
             - generatingProcess
             - forecastTime
             - horizontal
-            - individualEnsembleForecast
+            - largeIndividualEnsembleForecast
             - pointInTime
         name: Individual large ensemble forecast, control and perturbed, at a horizontal level or in a horizontal layer at a point in time
         keys:
@@ -3973,7 +3987,7 @@ pdt:
             - generatingProcess
             - forecastTime
             - horizontal
-            - individualEnsembleForecast
+            - largeIndividualEnsembleForecast
             - statisticalTimeRange
         name: Individual large ensemble forecast, control and perturbed, at a horizontal level or in a horizontal layer in a continuous or non-continuous time interval
         keys:
