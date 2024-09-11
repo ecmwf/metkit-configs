@@ -1,4 +1,13 @@
-list( APPEND files_mars2grib_rules MapSection2.yaml CategoriesToPDT.yaml TimeDescription.yaml LevTypeToTypeOfLevel.yaml MapLevel.yaml EmitStatParamOnly.yaml InferProcessType.yaml )
+list( APPEND files_mars2grib_rules 
+    MapSection2.yaml 
+    CategoriesToPDT.yaml 
+    TimeDescription.yaml 
+    LevTypeToTypeOfLevel.yaml 
+    MapLevel.yaml 
+    EmitStatParamOnly.yaml 
+    InferProcessType.yaml 
+    IfsPrefixToLevType.yaml
+)
 
 foreach( _file ${files_mars2grib_rules} )
 

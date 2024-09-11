@@ -1,0 +1,91 @@
+# File is manually updated
+
+# ifs is sending a prefix that almost looks like the levtype
+key: ifsPrefix
+dict: initial
+value-map:   
+    # Surface
+    SF: &surface
+        key: paramId
+        dict: initial
+        default: &levTypeSFC
+            write:
+                levType: "sfc";
+        value-map:   
+            "231027": &levTypeSOL
+                key: level
+                dict: initial
+                default:
+                    write:
+                        levType: "sol";
+                value-map:
+                    "0": *levTypeSFC
+            "228141": *levTypeSOL
+            "228038": *levTypeSOL
+            "238": *levTypeSOL
+            "33": *levTypeSOL
+            
+    s: *surface
+    sfc: *surface
+    "5": *surface
+    
+    # ModelLevel
+    ML: &modelLevel
+        key: paramId
+        dict: initial
+        default:
+            write:
+                levType: "ml";
+        value-map:   
+            "228246": &levTypeHl
+                write:
+                    levType: "hl";
+            "228247": *levTypeHl
+    m: *modelLevel
+    "1": *surface
+    
+    
+    # PressureLevel
+    PL: &pressureLevel
+        key: paramId
+        dict: initial
+        default:
+            write:
+                levType: "pl";
+        value-map:   
+            "228246": *levTypeHl
+            "228247": *levTypeHl
+            
+            
+    p: *pressureLevel
+    "2": *pressureLevel
+    
+    
+    # PV
+    PV: &vorticityLevel
+        write:
+            levType: "pv"
+            
+    v: *vorticityLevel
+    "3": *vorticityLevel
+    
+    # ThetaLevel
+    TH: &thetaLevel
+        write:
+            levType: "pt"
+            
+    t: *thetaLevel
+    "4": *thetaLevel
+    
+    
+    # Wave int
+    wv_int: &waveInt
+        *levTypeSFC
+    "6": *waveInt
+        
+    # Wave spec
+    wv_int: &waveSpec
+        *levTypeSFC
+    "7": *waveSpec
+            
+    
