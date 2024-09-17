@@ -467,7 +467,7 @@ _field: &_field
   chem:
     category: data
     multiple: true
-    type: enum
+    type: integer
 
   paramtype:
     category: data
@@ -482,7 +482,7 @@ _field: &_field
   wavelenth:
     category: data
     multiple: true
-    type: enum
+    type: integer
 
 #################################################################
 
