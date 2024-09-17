@@ -481,7 +481,7 @@ _field: &_field
       - wave_spectra
       - chemical
 
-  wavelenth:
+  wavelength:
     category: data
     multiple: true
     type: integer
