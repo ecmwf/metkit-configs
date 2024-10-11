@@ -469,7 +469,7 @@ _field: &_field
   chem:
     category: data
     multiple: true
-    type: integer
+    type: to-by-list
 
   paramtype:
     category: data
@@ -480,11 +480,14 @@ _field: &_field
       - wave
       - wave_spectra
       - chemical
+      - chemical_optical
+      - optical
+      - tile
 
   wavelength:
     category: data
     multiple: true
-    type: integer
+    type: range
 
 #################################################################
 
