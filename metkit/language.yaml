@@ -362,18 +362,44 @@ _field: &_field
 
   model:
     category: data
-    type: lowercase
+    type: enum
+    values:
+    - [ecmf]
+    - [edzw]
+    - [egrr]
+    - [lfpw]
+    - [kwbc]
+    - [none]
+    - [hrm]
+    - [lm]
+    - [ifs]
+    - [ifs-nemo]
+    - [ifs-fesom]
+    - [icon]
+    - [aifs]
+    - [aifs-single-mse]
+    - [aifs-ens-crps]
+    - [aifs-ens-diff]
+    - [alaro]
+    - [arome]
+    - [harmonie-arome]
+    - [global, glob]
 
   repres:
     flatten: false
     multiple: true
     type: enum
     values:
-    - gg
-    - sh
-    - ll
-    - np
-    - rl
+    - [bu, 'bufr']
+    - [sh, 'spherical harmonics']
+    - [ll, 'lat long grid']
+    - [gg, 'gaussian grid']
+    - [sv, 'space view']
+    - [og, 'ocean grid']
+    - [np]
+    - [rl]
+
+
 
   obsgroup:
     category: data
@@ -990,11 +1016,29 @@ _field: &_field
 
   activity:
     category: data
-    type: lowercase
+    type: enum
+    values:
+    - cmip6
+    - scenariomip
+    - highresmip
+    - story-nudging
 
   experiment:
     category: data
-    type: lowercase
+    type: enum
+    values:
+    - hist
+    - cont
+    - amip
+    - ssp1-1.9
+    - ssp1-2.6
+    - ssp2-4.5
+    - ssp3-7.0
+    - ssp5-8.5
+    - tplus1.5k
+    - tplus2.0k
+    - tplus3.0k
+    - tplus4.0k
 
   generation:
     category: data
@@ -1006,7 +1050,10 @@ _field: &_field
 
   resolution:
     category: data
-    type: lowercase
+    type: enum
+    values:
+    - standard
+    - high
 
 #######################################################################
 
@@ -1353,8 +1400,8 @@ retrieve:
   optimise:
     type: enum
     values:
-    - true
-    - false
+    - 'on'
+    - 'off'
     defaults:
       - vals: ["off"]
 
