@@ -387,7 +387,20 @@ _field: &_field
 
   repres:
     flatten: false
-    multiple: true
+    default:
+      - context:
+          obstype:
+            op: 'd'
+        val: [bu]
+      - val: [sh]
+    set:
+      - context:
+          obstype:
+            op: 'd'
+        val: [bu]
+      # - context:
+      #     grid: [1]
+      #   val: [gg]
     type: enum
     values:
     - [bu, 'bufr']
@@ -399,6 +412,15 @@ _field: &_field
     - [np]
     - [rl]
 
+
+  repres:
+    flatten: false
+    multiple: true
+    default:
+      - context:
+          obstype: [1]
+        val: [bu]
+      - val: [sh]
 
 
   obsgroup:
@@ -1016,7 +1038,7 @@ _field: &_field
 
   activity:
     category: data
-    type: enum
+    type: [enum, integer]
     values:
     - cmip6
     - scenariomip
