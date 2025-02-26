@@ -327,6 +327,8 @@ _field: &_field
   model:
     category: data
     type: lowercase
+    never:
+    - class: [ml]
 
   georef:
     type: lowercase
